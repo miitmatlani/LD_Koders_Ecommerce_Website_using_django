@@ -1,0 +1,276 @@
+{% extends 'extra.html' %}
+{% block title %}Meri website{% endblock title %}
+
+{% load static %}
+
+{% block head_content%}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+<style id="jsbin-css">
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+
+  }
+
+
+
+  .circle {
+
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: yellow;
+    position: fixed;
+    top: -250px;
+    right: -250px;
+  }
+
+  .circle2 {
+
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: yellow;
+    position: fixed;
+    bottom: -250px;
+    left: -250px;
+  }
+</style>
+{% endblock head_content%}
+
+{% block body %}
+<div class="circle"></div>
+<div class="circle2"></div>
+<div id="checkout">
+
+  <div class="header text-center">
+
+    <h2 class="display-4 text-black py-4" style="font-weight: 700;background-color: white;">
+
+      Checkout
+
+    </h2>
+
+  </div>
+
+  <div class="container" style="margin-bottom: 50px; z-index:1;">
+    <div class="row px-5 mx-5 py-5 text-white" style="background-color: black;">
+
+      <div class="col-md-4 order-md-2 mb-4">
+
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+
+          <span class="text-muted" style="color:yellow;">
+
+            Your cart
+
+          </span>
+
+          <span class="badge badge-secondary badge-pill">
+
+            7
+
+          </span>
+
+        </h4>
+
+        <ul class="list-group mb-3">
+
+          <li class="list-group-item d-flex justify-content-between bg-light" style="color: black!important;">
+
+            <div class="text-success" style="/* color:yellow */color: black!important;">
+
+              <h5 style="color: black;">
+
+                Promo code
+                <small>SALE</small>
+
+              </h5>
+
+            </div>
+
+            <span class="text-success">
+
+
+
+            </span>
+
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between" style="/* color:yellow */color: black!important;">
+
+            <span style="color: black;">
+              Total (Rupees)
+            </span>
+
+            <strong style="color: black;">
+              45
+            </strong>
+
+          </li>
+
+        </ul>
+
+        <form class="card p-2" style="background-color: transparent;">
+
+          <div class="input-group">
+
+            <input type="text" class="form-control" placeholder="Promo code" style="border-color: black;">
+
+            <div class="input-group-append">
+
+              <button type="submit" class="btn" style="color: black;background-color: yellow;border-color: black;">
+
+                Redeem
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="col-md-8 order-md-1">
+
+        <h4 class="mb-3" style="color: yellow;">
+          Billing address
+        </h4>
+
+        <form method="POST" action="/payment_gateway"> 
+          {% csrf_token %}
+          <input type="hidden" name="items_json" id="items_json">
+         <!-- <input type="hidden" name="amount" id="amount"> -->
+          <div class="row">
+
+            <div class="col-md-6 mb-3">
+
+              <input type="text" class="form-control" id="fname_pay" name="fname_pay" required="">
+              <label for="firstName" style="color:yellow;">
+                First name
+              </label>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+              <input type="text" class="form-control" id="lname_pay" name="lname_pay" required="">
+              <label for="lastName" style="color:yellow;">
+                Last name
+              </label>
+
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+
+            <input type="email" class="form-control" id="email_pay" name="email_pay" required="">
+            <label for="email" style="color:yellow;">
+              Email
+            </label>
+
+          </div>
+
+          <div class="mb-3">
+
+            <input type="text" class="form-control" id="address_pay" name="address_pay">
+
+            <label for="address" style="color:yellow;">
+              Address
+            </label>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-5 mb-3">
+
+              <label for="country" style="color:yellow;">
+                City
+              </label>
+
+              <input type="text" class="form-control" id="city_pay" name="city_pay">
+
+            </div>
+
+            <div class="col-md-4 mb-3">
+
+              <label for="state" style="color:yellow;">
+
+                State
+
+              </label>
+
+              <input type="text" class="form-control" id="state_pay" name="state_pay">
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+              <label for="zipcode" style="color:yellow;">
+
+                Zipcode
+
+              </label>
+
+              <input type="text" class="form-control" id="zipcode_pay" name="zipcode_pay">
+
+            </div>
+
+          </div>
+
+          <div class="custom-control custom-checkbox">
+
+            <input type="checkbox" class="custom-control-input" id="same-address">
+
+            <label class="custom-control-label" for="same-address" style="color:yellow;">
+
+              Shipping address is the same as my billing address.
+
+            </label>
+
+          </div>
+
+          <div class="custom-control custom-checkbox">
+
+            <input type="checkbox" class="custom-control-input" id="save-information">
+
+            <label for="save-information" class="custom-control-label" style="color:yellow;">
+
+              Save my address
+
+            </label>
+
+          </div>
+
+          <button class="btn  btn-lg btn-block" type="submit"
+            style="background-color: yellow;font-weight: 700;border-radius: 30px;">
+
+            Submit
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{%endblock body%}

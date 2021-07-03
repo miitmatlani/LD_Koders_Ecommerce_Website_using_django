@@ -1,0 +1,41 @@
+{% extends 'extra.html' %}
+
+{% block body %}
+  <div class="container " >
+    <form method="POST" action="/update_details">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name " class="form-label">Username</label>
+            <input type="text" class="form-control" id="registername" name='updatename' placeholder={{user}}>
+        </div>
+        <div class="mb-3">
+            <label for="fname " class="form-label">firstname</label>
+            <input type="text" class="form-control" id="registerfname" name='updatefname' placeholder={{user.first_name}}>
+        </div>
+        <div class="mb-3">
+            <label for="lname " class="form-label">lastname</label>
+            <input type="text" class="form-control" id="registerlname" name='updatelname' placeholder={{user.last_name}}>
+        </div>
+        <div class="mb-3">
+            <label for="phone number" class="form-label">Phone number</label>
+            <input type="tel" class="form-control" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" id="ph_num" name='update_ph_num' placeholder="Enter Ph no."  >
+        </div>
+        
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">New Password</label>
+            <input type="password" id="registerPassword" name="updatepassword" class="form-control" placeholder="Enter New Password">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="registeremail" name="updateemail" placeholder={{user.email}}>
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">Old Password</label>
+            <input type="password" id="registerPassword" name="Old_password" class="form-control" placeholder="Enter Old Password to confirm above changes" required>
+        </div>
+        
+        <button class="btn btn-primary" type="submit" id="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock body %}

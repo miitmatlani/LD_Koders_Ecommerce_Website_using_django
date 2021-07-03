@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block handburgermenu %}<style>
+#menu{
+	width: 35px;
+	height: 30px;
+	margin: 30px 0 20px 20px;
+	cursor: pointer;
+}
+
+.bar{
+	height: 5px;
+	width: 100%;
+	background-color: purple;
+	display: block;
+	border-radius: 5px;
+	transition: 0.3s ease;
+}
+
+#bar1{
+	transform: translateY(-4px);
+}
+
+#bar3
+{
+	transform: translateY(4px);
+}
+
+.navg li a
+{
+	color: #ef9918;
+	text-decoration: none;
+}
+
+.navg li a:hover
+{
+	font-weight: bold;
+}
+
+.navg li
+{
+	list-style: none;
+	padding: 16px 0;
+	display: none;
+}
+
+.navg
+{
+	
+	padding: 0;
+	margin: 0 20px;
+	transition: 0.3s ease;
+		
+}
+
+.menu-bg, #menu-bar
+{
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+
+.menu-bg
+{
+	z-index: 1;
+	width: 0;
+	height:540px;
+	margin: 30px 0 20px 20px;
+	background: #000000;
+	border-radius: 50px;
+	transition: 0.3s ease;
+}
+
+#menu-bar
+{
+	z-index: 2;
+	height:67px;	
+}
+
+.change-bg
+{
+	width: 550px;
+	height: 540px;
+	transform: translate(-70%,-5%);
+}
+
+.change .bar
+{
+	background-color:#b81568;
+}
+
+.change #bar1
+{
+	transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar3
+{
+	transform: translateY(-6px) rotate(45deg);
+}
+
+.change #bar2
+{
+	opacity: 0;
+}
+
+.change li
+{
+	display: block;
+}
+
+
+
+.Img-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.Img-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.Img-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.Img-dropdown:hover .Img-dropdown-content {
+  display: block;
+
+}
+
+.Img-dropdown-content a:hover {
+	font-weight: bold;
+	background-color: #efefef;
+}
+
+</style>
+
+<script>
+
+function onClickMenu(){
+document.getElementById("menu").classList.toggle("change");
+document.getElementById("nav").classList.toggle("change");
+document.getElementById("menu-bg").classList.toggle("change-bg");
+}
+
+function elec_texts(){
+	document.getElementById("1sttext").innerHTML = "refrigerator";
+	document.getElementById("1sttext").href = "/contact";
+
+	document.getElementById("2ndtext").innerHTML = "Telivisions";
+	document.getElementById("2ndtext").href = "#";
+
+	document.getElementById("4thtext").innerHTML = "Kitchen";
+	document.getElementById("4thtext").href = "#";
+
+	document.getElementById("navbarDropdown").innerHTML = "Other items";
+	document.getElementById("navbarDropdown").href = "#";
+} 
+
+</script>{% endblock handburgermenu %}

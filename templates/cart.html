@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+{% extends 'extra.html' %}
+{% block title %}Meri website{% endblock title %}
+
+{% load static %}
+
+{% block head_content%}
+
+    <style type="text/css" id="nanobarcss">
+        .nanobar {
+            width: 100%;
+            height: 4px;
+            z-index: 9999;
+            top: 0
+        }
+
+        .bar {
+            width: 0;
+            height: 100%;
+            transition: height .3s;
+            background: #000
+        }
+        .coupon-code-add, .coupon-code-cancel, .gift-certificate-add, .gift-certificate-cancel, .shipping-estimate-hide, .shipping-estimate-show {
+    color: darkblue!important;
+}
+a {
+    color: darkblue!important;
+    line-height: inherit;
+    text-decoration: underline;
+    font-weight: 700;
+}
+    </style>
+    <meta class="foundation-mq-small">
+    <meta class="foundation-mq-small-only">
+    <meta class="foundation-mq-medium">
+    <meta class="foundation-mq-medium-only">
+    <meta class="foundation-mq-large">
+    <meta class="foundation-mq-large-only">
+    <meta class="foundation-mq-xlarge">
+    <meta class="foundation-mq-xlarge-only">
+    <meta class="foundation-mq-xxlarge">
+    <meta class="foundation-data-attribute-namespace">
+    <title>Shopping Cart</title>
+    <link rel="dns-prefetch preconnect" href="https://cdn11.bigcommerce.com/s-7m5ld8h9rx" crossorigin="">
+    <link rel="dns-prefetch preconnect" href="https://fonts.googleapis.com" crossorigin="">
+    <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <meta name="description" content="justin@lonestartemplates.com">
+
+
+
+    <link href="https://cdn11.bigcommerce.com/r-9c847e63b04268cff4de6ac8576ef5f41e337a50/img/bc_favicon.ico"
+        rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" defer=""
+        src="https://cdn11.bigcommerce.com/shared/js/storefront/analytics-c7af4d4e323cc1137c45f692e81cae05fd2a3986.js"></script>
+    <script>
+        document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    <script>
+        function browserSupportsAllFeatures() {
+            return window.Promise
+                && window.fetch
+                && window.URL
+                && window.URLSearchParams
+                && window.WeakMap
+                // object-fit support
+                && ('objectFit' in document.documentElement.style);
+        }
+
+        function loadScript(src) {
+            var js = document.createElement('script');
+            js.src = src;
+            js.onerror = function () {
+                console.error('Failed to load polyfill script ' + src);
+            };
+            document.head.appendChild(js);
+        }
+
+        if (!browserSupportsAllFeatures()) {
+            loadScript('https://cdn11.bigcommerce.com/s-7m5ld8h9rx/stencil/b1cb6720-9caa-0139-d8e8-56341ff5e098/e/bd87d480-c6b9-0137-0589-0242ac11001d/dist/theme-bundle.polyfills.js');
+        }
+    </script>
+
+    <script>
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        window.lazySizesConfig.loadMode = 1;
+    </script>
+    <script async=""
+        src="https://cdn11.bigcommerce.com/s-7m5ld8h9rx/stencil/b1cb6720-9caa-0139-d8e8-56341ff5e098/e/bd87d480-c6b9-0137-0589-0242ac11001d/dist/theme-bundle.head_async.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&amp;display=swap" rel="stylesheet">
+    <link data-stencil-stylesheet=""
+        href="https://cdn11.bigcommerce.com/s-7m5ld8h9rx/stencil/b1cb6720-9caa-0139-d8e8-56341ff5e098/e/bd87d480-c6b9-0137-0589-0242ac11001d/css/theme-72b21ad0-9cab-0139-11e5-72e1626ad7f1.css"
+        rel="stylesheet">
+    <link data-stencil-stylesheet=""
+        href="https://cdn11.bigcommerce.com/s-7m5ld8h9rx/stencil/b1cb6720-9caa-0139-d8e8-56341ff5e098/e/bd87d480-c6b9-0137-0589-0242ac11001d/css/vault-72b21ad0-9cab-0139-11e5-72e1626ad7f1.css"
+        rel="stylesheet">
+    <link data-stencil-stylesheet=""
+        href="https://cdn11.bigcommerce.com/s-7m5ld8h9rx/stencil/b1cb6720-9caa-0139-d8e8-56341ff5e098/e/bd87d480-c6b9-0137-0589-0242ac11001d/css/custom-72b21ad0-9cab-0139-11e5-72e1626ad7f1.css"
+        rel="stylesheet">
+
+    <!-- Start Tracking Code for analytics_googleanalytics -->
+
+    <script>
+        !function () {
+            var analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on"]; analytics.factory = function (t) { return function () { var e = Array.prototype.slice.call(arguments); e.unshift(t); analytics.push(e); return analytics } }; for (var t = 0; t < analytics.methods.length; t++) { var e = analytics.methods[t]; analytics[e] = analytics.factory(e) } analytics.loadPlatform = function (t, e, a, o) { window[o || "analytics"] = analytics; window._analytics_js_global_name = o; analytics.platformSettings = e; analytics.platformPlan = a; var r = document.createElement("script"); r.type = "text/javascript"; r.defer = !0; r.src = "https://cdn11.bigcommerce.com/shared/js/storefront/analytics-c7af4d4e323cc1137c45f692e81cae05fd2a3986.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) }; analytics.SNIPPET_VERSION = "4.0.0_platform";
+                analytics.loadPlatform("", { "Google Analytics": { "enhancedLinkAttribution": true, "enhancedEcommerce": true, "includeSearch": true, "sendUserId": true, "trackingId": "UA-141693110-17", "dimensions": [], "metrics": [] } }, {}, "analytics");
+                analytics.identify();
+                analytics.page();
+
+                analytics.ready(function () {
+                    ga('require', 'ec');
+                    ga('require', 'linker');
+                    ga('linker:autoLink', ["vault-bright-demo.mybigcommerce.com", "ad.buybutton.store", "store-7m5ld8h9rx.mybigcommerce.com", "www.store-7m5ld8h9rx.mybigcommerce.com"]);
+                });
+            }
+        }();
+    </script>
+
+    <!-- End Tracking Code for analytics_googleanalytics -->
+
+
+    <script type="text/javascript" src="https://checkout-sdk.bigcommerce.com/v1/loader.js" defer=""></script>
+    <script type="text/javascript"
+        src="https://cdn11.bigcommerce.com/r-9c847e63b04268cff4de6ac8576ef5f41e337a50/vendor/bower_components/braintree-web/index.js"
+        defer=""></script>
+    <script type="text/javascript"
+        src="https://cdn11.bigcommerce.com/r-9c847e63b04268cff4de6ac8576ef5f41e337a50/javascript/braintree.js"
+        defer=""></script>
+    <script type="text/javascript">
+        var BCData = { "csrf_token": "9ddd49ada4a374107eece35994b35a0fadc3e39eb9f3a68c1135ba89ab3a69d9" };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("Testing Head Scripts!");
+        });
+    </script>
+
+    <style></style>
+    <script charset="utf-8"
+        src="https://cdn11.bigcommerce.com/s-7m5ld8h9rx/stencil/b1cb6720-9caa-0139-d8e8-56341ff5e098/e/bd87d480-c6b9-0137-0589-0242ac11001d/dist/theme-bundle.chunk.8.js"></script>
+{% endblock head_content%}
+
+{% block body %}
+    <div class="body" data-currency-code="USD">
+     
+        <div class="container">
+            <div class="page">
+    
+        <main class="page-content" data-cart="">
+            <ul class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            <li class="breadcrumb " itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a href="https://vault-bright-demo.mybigcommerce.com/" class="breadcrumb-label" itemprop="item"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </li>
+            <li class="breadcrumb is-active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <meta itemprop="item" content="https://vault-bright-demo.mybigcommerce.com/cart.php">
+                    <span class="breadcrumb-label" itemprop="name">Your Cart</span>
+                <meta itemprop="position" content="2">
+            </li>
+    </ul>
+    
+            <h1 class="page-heading" data-cart-page-title="">
+        Your Cart (1 item)
+    </h1>
+    
+            <div data-cart-status="">
+                        </div>
+    
+                <div class="loadingOverlay" style="display: none;"></div>
+    
+                <div data-cart-content="">
+                    <table class="cart" data-cart-quantity="1">
+        <thead class="cart-header">
+            <tr>
+                <th class="cart-header-item" colspan="2">Item</th>
+                <th class="cart-header-item">Price</th>
+                <th class="cart-header-item cart-header-quantity">Quantity</th>
+                <th class="cart-header-item">Total</th>
+            </tr>
+        </thead>
+        <tbody class="cart-list">
+                <tr class="cart-item" data-item-row="">
+                    <td class="cart-item-block cart-item-figure">
+                            <img src="https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/160w/products/88/292/3cupchemex5.1553542690.jpg?c=2" alt="Chemex Coffeemaker 3 Cup" title="Chemex Coffeemaker 3 Cup" data-sizes="auto" srcset="https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/80w/products/88/292/3cupchemex5.1553542690.jpg?c=2 80w, https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/160w/products/88/292/3cupchemex5.1553542690.jpg?c=2 160w, https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/320w/products/88/292/3cupchemex5.1553542690.jpg?c=2 320w, https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/640w/products/88/292/3cupchemex5.1553542690.jpg?c=2 640w, https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/960w/products/88/292/3cupchemex5.1553542690.jpg?c=2 960w, https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/1280w/products/88/292/3cupchemex5.1553542690.jpg?c=2 1280w, https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/1920w/products/88/292/3cupchemex5.1553542690.jpg?c=2 1920w, https://cdn11.bigcommerce.com/s-7m5ld8h9rx/images/stencil/2560w/products/88/292/3cupchemex5.1553542690.jpg?c=2 2560w" class=" cart-item-image">
+                    </td>
+                    <td class="cart-item-block cart-item-title">
+                            <p class="cart-item-brand">Lucky 8</p>
+                        <h2 class="cart-item-name">
+                            <a class="cart-item-name__label" href="https://vault-bright-demo.mybigcommerce.com/chemex-coffeemaker-3-cup/">Chemex Coffeemaker 3 Cup</a>
+                        </h2>
+    
+    
+                            <dl class="cart-item-options cart-item-options--giftWrapping">
+            <dt class="cart-item-option-title">
+                Gift Wrapping:
+            </dt>
+                <dd class="cart-item-option-description">
+                    <a href="" data-item-giftwrap="ab6ef85e-29cb-4c27-b2f9-e59eb03976cc">Add</a>
+                </dd>
+        </dl>
+    
+                    </td>
+                    <td class="cart-item-block cart-item-info">
+                        <span class="cart-item-label">Price</span>
+                            <span class="cart-item-value ">$49.50</span>
+                    </td>
+    
+                    <td class="cart-item-block cart-item-info cart-item-quantity">
+    
+                        <label class="form-label cart-item-label" for="qty-ab6ef85e-29cb-4c27-b2f9-e59eb03976cc">Quantity:</label>
+                        <div class="form-increment">
+                                <button class="button button--icon" data-cart-update="" data-cart-itemid="ab6ef85e-29cb-4c27-b2f9-e59eb03976cc" data-action="dec">
+                                    <span class="is-srOnly">Decrease Quantity:</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-down"></use></svg></i>
+                                </button>
+                            <input class="form-input form-input--incrementTotal cart-item-qty-input" id="qty-ab6ef85e-29cb-4c27-b2f9-e59eb03976cc" name="qty-ab6ef85e-29cb-4c27-b2f9-e59eb03976cc" type="tel" value="1" data-quantity-min="" data-quantity-max="" data-quantity-min-error="The minimum purchasable quantity is null" data-quantity-max-error="The maximum purchasable quantity is null" min="1" pattern="[0-9]*" data-cart-itemid="ab6ef85e-29cb-4c27-b2f9-e59eb03976cc" data-action="manualQtyChange" aria-live="polite">
+                                <button class="button button--icon" data-cart-update="" data-cart-itemid="ab6ef85e-29cb-4c27-b2f9-e59eb03976cc" data-action="inc">
+                                    <span class="is-srOnly">Increase Quantity:</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up"></use></svg></i>
+                                </button>
+                        </div>
+    
+                    </td>
+    
+                    <td class="cart-item-block cart-item-info">
+                        <span class="cart-item-label">Total</span>
+                            <strong class="cart-item-value ">$49.50</strong>
+                            <button class="cart-remove icon" data-cart-itemid="ab6ef85e-29cb-4c27-b2f9-e59eb03976cc" data-confirm-delete="Are you sure you want to delete this item?" aria-label="cart.remove_item">
+                                <svg><use xlink:href="#icon-close"></use></svg>
+                            </button>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+                </div>
+    
+                <div data-cart-totals="">
+                    <ul class="cart-totals">
+        <li class="cart-total">
+            <div class="cart-total-label">
+                <strong>Subtotal:</strong>
+            </div>
+            <div class="cart-total-value">
+                    <span>$49.50</span>
+            </div>
+        </li>
+            <li class="cart-total">
+                <div class="cart-total-label">
+                    <strong>Shipping:</strong>
+                </div>
+                    <div class="cart-total-value">
+            <button data-collapsible="add-shipping" class="shipping-estimate-show" aria-labelledby="estimator-add" aria-label="Add Info" aria-controls="add-shipping" aria-expanded="false">
+                <span class="shipping-estimate-show__btn-name">Add Info</span>
+                <span id="estimator-add" class="u-hidden">Add Info</span>
+                <span id="estimator-close" class="u-hidden">Cancel</span>
+            </button>
+        </div>
+    
+    <div id="add-shipping" class="shipping-estimator u-hidden" aria-hidden="true">
+        <form class="form estimator-form" data-shipping-estimator="">
+            <dl>
+                <dt class="estimator-form-label">
+                    <label class="form-label" for="shipping-country">Country</label>
+                </dt>
+    
+                <dd class="estimator-form-input">
+                    <select class="form-select" id="shipping-country" name="shipping-country" data-field-type="Country">
+                        <option>Country</option>
+                            <option value="226" selected="selected">
+                                United States
+                            </option>
+                    </select>
+                <span style="display: none;"></span></dd>
+    
+                <dt class="estimator-form-label">
+                    <label class="form-label" for="shipping-state">State/province</label>
+                </dt>
+    
+                <dd class="estimator-form-input">
+                        <select class="form-select" id="shipping-state" name="shipping-state" data-field-type="State">
+                            <option>State/province</option>
+                                <option value="1">
+                                    Alabama
+                                </option>
+                                <option value="2">
+                                    Alaska
+                                </option>
+                                <option value="3">
+                                    American Samoa
+                                </option>
+                                <option value="4">
+                                    Arizona
+                                </option>
+                                <option value="5">
+                                    Arkansas
+                                </option>
+                                <option value="6">
+                                    Armed Forces Africa
+                                </option>
+                                <option value="7">
+                                    Armed Forces Americas
+                                </option>
+                                <option value="8">
+                                    Armed Forces Canada
+                                </option>
+                                <option value="9">
+                                    Armed Forces Europe
+                                </option>
+                                <option value="10">
+                                    Armed Forces Middle East
+                                </option>
+                                <option value="11">
+                                    Armed Forces Pacific
+                                </option>
+                                <option value="12">
+                                    California
+                                </option>
+                                <option value="13">
+                                    Colorado
+                                </option>
+                                <option value="14">
+                                    Connecticut
+                                </option>
+                                <option value="15">
+                                    Delaware
+                                </option>
+                                <option value="16">
+                                    District of Columbia
+                                </option>
+                                <option value="17">
+                                    Federated States Of Micronesia
+                                </option>
+                                <option value="18">
+                                    Florida
+                                </option>
+                                <option value="19">
+                                    Georgia
+                                </option>
+                                <option value="20">
+                                    Guam
+                                </option>
+                                <option value="21">
+                                    Hawaii
+                                </option>
+                                <option value="22">
+                                    Idaho
+                                </option>
+                                <option value="23">
+                                    Illinois
+                                </option>
+                                <option value="24">
+                                    Indiana
+                                </option>
+                                <option value="25">
+                                    Iowa
+                                </option>
+                                <option value="26">
+                                    Kansas
+                                </option>
+                                <option value="27">
+                                    Kentucky
+                                </option>
+                                <option value="28">
+                                    Louisiana
+                                </option>
+                                <option value="29">
+                                    Maine
+                                </option>
+                                <option value="30">
+                                    Marshall Islands
+                                </option>
+                                <option value="31">
+                                    Maryland
+                                </option>
+                                <option value="32">
+                                    Massachusetts
+                                </option>
+                                <option value="33">
+                                    Michigan
+                                </option>
+                                <option value="34">
+                                    Minnesota
+                                </option>
+                                <option value="35">
+                                    Mississippi
+                                </option>
+                                <option value="36">
+                                    Missouri
+                                </option>
+                                <option value="37">
+                                    Montana
+                                </option>
+                                <option value="38">
+                                    Nebraska
+                                </option>
+                                <option value="39">
+                                    Nevada
+                                </option>
+                                <option value="40">
+                                    New Hampshire
+                                </option>
+                                <option value="41">
+                                    New Jersey
+                                </option>
+                                <option value="42">
+                                    New Mexico
+                                </option>
+                                <option value="43">
+                                    New York
+                                </option>
+                                <option value="44">
+                                    North Carolina
+                                </option>
+                                <option value="45">
+                                    North Dakota
+                                </option>
+                                <option value="46">
+                                    Northern Mariana Islands
+                                </option>
+                                <option value="47">
+                                    Ohio
+                                </option>
+                                <option value="48">
+                                    Oklahoma
+                                </option>
+                                <option value="49">
+                                    Oregon
+                                </option>
+                                <option value="50">
+                                    Palau
+                                </option>
+                                <option value="51">
+                                    Pennsylvania
+                                </option>
+                                <option value="52">
+                                    Puerto Rico
+                                </option>
+                                <option value="53">
+                                    Rhode Island
+                                </option>
+                                <option value="54">
+                                    South Carolina
+                                </option>
+                                <option value="55">
+                                    South Dakota
+                                </option>
+                                <option value="56">
+                                    Tennessee
+                                </option>
+                                <option value="57">
+                                    Texas
+                                </option>
+                                <option value="58">
+                                    Utah
+                                </option>
+                                <option value="59">
+                                    Vermont
+                                </option>
+                                <option value="60">
+                                    Virgin Islands
+                                </option>
+                                <option value="61">
+                                    Virginia
+                                </option>
+                                <option value="62">
+                                    Washington
+                                </option>
+                                <option value="63">
+                                    West Virginia
+                                </option>
+                                <option value="64">
+                                    Wisconsin
+                                </option>
+                                <option value="65">
+                                    Wyoming
+                                </option>
+                        </select>
+                <span style="display: none;"></span></dd>
+    
+                <dt class="estimator-form-label">
+                    <label class="form-label" for="shipping-city">Suburb/city</label>
+                </dt>
+                <dd class="estimator-form-input">
+                    <input class="form-input" type="text" id="shipping-city" name="shipping-city" value="" placeholder="Suburb/city">
+                </dd>
+    
+                <dt class="estimator-form-label">
+                    <label class="form-label" for="shipping-zip">Zip/postcode</label>
+                </dt>
+                <dd class="estimator-form-input">
+                    <input class="form-input" type="text" id="shipping-zip" name="shipping-zip" value="" placeholder="Zip/postcode">
+                </dd>
+                <button class="button button--primary button--small shipping-estimate-submit">Estimate Shipping</button>
+            </dl>
+        </form>
+        <div class="shipping-quotes"></div>
+    </div>
+            </li>
+            <li class="cart-total">
+                <div class="cart-total-label">
+                    <strong>Coupon Code:</strong>
+                </div>
+                <div class="cart-total-value">
+    
+        <button class="coupon-code-add">Add Coupon</button>
+    
+        <button class="coupon-code-cancel" style="display: none;">Cancel</button>
+    </div>
+    
+    <div class="cart-form coupon-code" style="display: none;">
+        <form class="form form--hiddenLabels coupon-form" method="post" action="/cart.php">
+            <label class="form-label" for="couponcode">Enter your coupon code</label>
+            <input class="form-input" data-error="Please enter your coupon code." id="couponcode" type="text" name="couponcode" value="" placeholder="Enter your coupon code">
+            <input class="button button--primary button--small" type="submit" value="Apply">
+            <input type="hidden" name="action" value="applycoupon">
+        </form>
+    </div>
+            </li>
+            <li class="cart-total">
+                <div class="cart-total-label">
+                    <strong>Gift Certificate:</strong>
+                </div>
+                <div class="cart-total-value">
+    
+        <button class="gift-certificate-add">Gift Certificate</button>
+    
+        <button class="gift-certificate-cancel" style="display: none;">Cancel</button>
+    </div>
+    
+    <div class="cart-form gift-certificate-code" style="display: none;">
+        <form class="form form--hiddenLabels cart-gift-certificate-form" method="post" action="/cart.php">
+            <label class="form-label" for="certcode">Enter your certificate code</label>
+            <input class="form-input" data-error="Please enter your valid certificate code." id="certcode" type="text" name="certcode" value="" placeholder="Add Certificate">
+            <input class="button button--primary button--small" type="submit" value="Apply">
+            <input type="hidden" name="action" value="applycoupon">
+        </form>
+    </div>
+            </li>
+        <li class="cart-total">
+            <div class="cart-total-label">
+                <strong>Grand total:</strong>
+            </div>
+            <div class="cart-total-value cart-total-grandTotal">
+                    <span>$49.50</span>
+            </div>
+        </li>
+    </ul>
+                </div>
+    
+                    <div class="cart-actions">
+                       <a class="button button--primary" href="/checkout" title="Click here to proceed to checkout" style="
+    background-color: black!important;
+    border-color: black!important;
+    color: yellow!important;
+    border-radius: 25px;
+">Check out</a>
+                    </div>
+    
+    
+        </main>
+    </div>
+    
+        </div>
+        <div id="modal" class="modal" data-reveal="" data-prevent-quick-search-close="">
+        <button class="modal-close" type="button" title="Close">
+        <span class="aria-description--hidden">Close</span>
+        <span aria-hidden="true">×</span>
+    </button>
+        <div class="modal-content"></div>
+        <div class="loadingOverlay" style="display: none;"></div>
+    </div>
+        <div id="alert-modal" class="modal modal--alert modal--small" data-reveal="" data-prevent-quick-search-close="">
+        <div class="swal2-icon swal2-error swal2-icon-show"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div>
+    
+        <div class="modal-content"></div>
+    
+        <div class="button-container"><button type="button" class="confirm button" data-reveal-close="">OK</button></div>
+    <div class="loadingOverlay" style="display: none;"></div></div>
+    </div>
+{% endblock body %}
