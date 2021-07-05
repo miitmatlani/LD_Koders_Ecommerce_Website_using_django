@@ -1,0 +1,306 @@
+{% extends 'extra.html' %}
+
+{% block head_content%}
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+<style>
+    .row {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .gallery-block {
+        padding-bottom: 60px;
+        padding-top: 60px;
+        background-color: white;
+
+    }
+
+    .gallery-block .heading {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .gallery-block .heading h2 {
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    .gallery-block.cards-gallery .card {
+        transition: 0.4s easy;
+        margin-bottom: 30px;
+        box-shadow: 2px 1px 10px rgba(0, 0, 0, 15%);
+    }
+
+    .gallery-block.cards-gallery .card img {
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-block.cards-gallery .card-body {
+        text-align: center;
+        background-color: black;
+    }
+
+    .gallery-block.cards-gallery .card-body p {
+        font-size: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .gallery-block.cards-gallery h6 {
+        font-size: 17px;
+        font-weight: bold;
+        color: yellow;
+    }
+
+    .gallery-block.cards-gallery a {
+        color: #212529;
+    }
+
+    .gallery-block.cards-gallery a:hover {
+        text-decoration: none;
+    }
+
+    .gallery-block.cards-gallery .sz {
+        height: 300px;
+    }
+
+    .gallery-block.cards-gallery .btn {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 50px;
+        padding: 10px;
+    }
+
+    .gallery-block.cards-gallery .btn:hover {
+        background-color: rgb(255, 255, 255);
+        border-radius: 50px;
+        color: rgb(0, 0, 0);
+        border: .5px solid black;
+        border-radius: 50px;
+        transition: .5s;
+        cursor: pointer;
+    }
+
+    .card>.card-content {
+        background: red;
+        padding: 10px;
+        text-align: center;
+        font-size: 36px;
+        height: 350px;
+    }
+
+    @media (min-width: 576px) {
+
+        .gallery-block .transform-on-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important;
+        }
+    }
+
+    .arrow_prev {
+        position: absolute;
+        left: 8%;
+        bottom: 33%;
+    }
+
+    .arrow_prev span {
+        font-size: 25px;
+        color: rgb(0, 0, 0);
+        border: 0px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-align: left;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    .arrow_next {
+        position: absolute;
+        left: 92%;
+        bottom: 33%;
+    }
+
+    .arrow_next span {
+        font-size: 25px;
+        color: rgb(0, 0, 0);
+        border: 0px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-align: left;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    .carousel .slick-dots {
+        position: absolute;
+        bottom: -2.5%;
+        z-index: 10;
+        left: 44%;
+
+    }
+
+    .carousel .slick-dots .slick-active {
+        background-color: black;
+    }
+
+    .carousel .slick-dots li {
+        list-style: none;
+        width: 15px;
+        height: 15px;
+        background: gray;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .carousel .slick-dots li button {
+        display: none;
+    }
+</style>
+{% endblock head_content%}
+
+
+{% block body %}
+
+<section class="gallery-block cards-gallery">
+    <div class="container my-3">
+
+        <h2>Search results : </h2>
+
+        {% if all_searched_Prod|length < 1 %} <p>No search results</p>
+            Your search query : <b>{{query}}</b> did not match any documents. <br>
+            Suggestions:
+            <ul>
+                <li>Make sure that all words are spelled correctly.</li>
+                <li>Try more general keywords.</li>
+                <li> Try fewer keywords.</li>
+                <li> Try different keywords.</li>
+                </li>
+            </ul>
+            {% endif %}
+            {% comment %} {% for product in all_searched_Prod%}
+            <p><b>{{product}}</b></p>
+            {%endfor%} {% endcomment %}
+
+            <div class=" carousel">
+                {%for eachslide in range%}
+                <!--<div class="row">-->
+                {% for product in all_searched_Prod%}
+                <div class="card col-md-6 col-lg-4">
+                    <div class="card border-0 transform-on-hover">
+                        <a class="lightbox" href="..."><img src="{{product.Image_1}}" class="card-img-top sz"></a>
+                        <div class="card-body">
+                            <h6>{{product.Index}},{{product.Product_Name}}</h6>
+                            <p class="text-muted card-text">{{product.Description}}</p>
+
+                            <button id="Pr-{{product.Index}}" class='btn'>Add To Cart</button>
+
+                        </div>
+                    </div>
+                </div>
+
+                {%endfor%}
+
+                {%endfor%}
+            </div>
+
+            <div class="arrow_prev">
+                <span>
+                    <i class="fas fa-angle-left"></i>
+                </span>
+            </div>
+            <div class="arrow_next">
+                <span>
+                    <i class="fas fa-angle-right"></i>
+                </span>
+            </div>
+    </div>
+</section>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js'></script>
+<script>
+    var slickopts = {
+        prevArrow: '.arrow_prev',
+        nextArrow: '.arrow_next',
+        dots: true,
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        rows: 3, // Removes the linear order. Would expect card 5 to be on next row, not stacked in groups.
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 776,
+                settings: {
+                    slidesToShow: 1,
+                    rows: 1 // This doesn't appear to work in responsive (Mac/Chrome)
+                }
+            }]
+    };
+
+    $('.carousel').slick(slickopts);
+</script>
+<script>
+
+</script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+
+{% comment %} {% for post in allPosts %}
+<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+        <strong class="d-inline-block mb-2 text-primary">Article by {{post.author}}</strong>
+        <h3 class="mb-0">{{post.title}}</h3>
+        <div class="mb-1 text-muted">{{post.datetime}}</div>
+        <p class="card-text mb-auto">{{post.content| truncatechars:500}}</p>
+        <div class="my-2">
+            <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+        </div>
+
+    </div>
+    <div class="col-auto d-none d-lg-block">
+        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+        </svg>
+    </div>
+</div>
+
+{% endfor %} {% endcomment %}
+
+
+
+{%endblock body%}
+
+
+
