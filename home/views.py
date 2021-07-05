@@ -164,7 +164,7 @@ def search(request):
     if allPosts.count()==0:
         messages.warning(request, "No search results found. Please refine your query.")
     params={'allPosts': allPosts, 'query': query}
-    return render(request, 'search.html', params)
+    return render(request, 'search2.html', params)
 
 def product_card(request):
      return render(request,"product card.html")
